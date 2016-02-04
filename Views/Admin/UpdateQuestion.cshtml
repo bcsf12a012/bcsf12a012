@@ -1,0 +1,40 @@
+﻿@using MvcApplication1.Models
+@model IEnumerable<UserQuestion>
+
+@{
+    ViewBag.Title = "Update My Questions";
+    Layout = "~/Views/Shared/AdminNavBar.cshtml";
+}
+
+
+<body style=" color: black;">
+
+    <div>
+
+        <div class="container well well-sm col-lg-6" style="margin-left:20%">
+
+            <table class="table" style="border:solid">
+                <thead>
+                    <tr class="btn-primary" style="text-align:center">
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Update</th>
+
+                    </tr>
+                </thead>
+
+                @foreach (UserQuestion obj in Model)
+                {
+                    <tr>
+                        <td>@obj.Id</td>
+                        <td>@obj.Title</td>
+                        <td><a href="/Admin/updateThisQuestion/@obj.Id">Update</a></td>
+
+                    </tr>
+                }
+
+            </table>
+
+        </div>
+    </div>
+</body>

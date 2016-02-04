@@ -1,0 +1,75 @@
+﻿@using MvcApplication1.Models
+@model IEnumerable<Comment>
+
+@{
+    ViewBag.Title = "Comment";
+    Layout = "~/Views/Shared/UserNavBar.cshtml";
+}
+
+<body style=" color: black;">
+    <div>
+        <div class="container well well-sm col-lg-4" style="margin-left: 20%">
+
+            <label>Question:@ViewBag.obj.Question</label>
+
+            <label>Asked By @ViewBag.user.Username</label>
+            
+            <br />
+            
+            <label>Comments</label><br /><br />
+            
+            <hr />
+            
+            @foreach (Comment obj in Model)
+            {
+                foreach (User o in @ViewBag.p)
+                {
+                    if (o.Id == obj.UserId)
+                    {
+                        if (@obj.UserId == 1)
+                        {
+                            <p>
+                                
+                                <strong><a href="/User/ViewProfile/@o.Id">Admin</a></strong>:@obj.Comment1
+                            </p>
+                        }
+                        else if(@ViewBag.user.Id == o.Id)
+                        {
+                            <p>
+                               
+                                <strong><a href="/User/ViewProfile/@o.Id">@obj.Name</a></strong>:@obj.Comment1
+                                <a href="/User/deleteComment/@obj.Id" class="pull-right">
+                                    <input type="submit" value="Delete" class="btn btn-primary hvr-bounce-in" />
+                                </a>
+                            </p>
+                        }
+                        else
+                        {
+                            <p>
+                                
+                                <strong><a href="/User/ViewProfile/@o.Id">@obj.Name</a></strong>:@obj.Comment1
+                                
+                            </p>
+
+                        }
+                        break;
+                    }
+                }
+                <hr />
+            }
+            
+
+            <form action="/User/comment" method="post">
+                <textarea cols="50" rows="5" required="required" name="comment"> </textarea>
+                <br /><br />
+                <div class="form-group" style="margin-left: 25%">
+                    <input type="submit" value="Comment" class="btn btn-success" />
+                </div>
+            
+            </form>
+            <br /><br /><br /><br />
+        </div>
+        <br /><br /><br /><br />
+    </div>
+</body>
+

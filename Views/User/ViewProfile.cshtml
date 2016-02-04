@@ -1,0 +1,48 @@
+﻿@using MvcApplication1.Models
+@model User
+
+@{
+    ViewBag.Title = @Model.Name;
+    Layout = "~/Views/Shared/UserNavBar.cshtml";
+}
+<body style=" color: black;">
+
+
+    @*
+        @foreach(User u in Model)
+        {
+            <h1 style="align-content:center;margin-left:15%">WelCome @u.Name</h1><br />
+            <div style="width:50%;float:right;">
+
+                <a class="fancybox" href="~/Content/Users/@u.Picture"> <img src="~/Content/Users/@u.Picture" style="max-height:80%;max-width:50%" data-toggle="modal"></a>
+                </div>
+
+        }*@
+    <h1 style="align-content:center;margin-left:15%">WelCome @Model.Name</h1><br />
+    <div style="width:30%;float:left;margin-left:10%;padding-left:5%;margin-top:5%; border: solid">
+
+        <label style="margin-left:15%">Personal Information</label><br />
+        <label>Account #:@Model.Id</label><br />
+        <label>Name:@Model.Name</label><br />
+        <label>Address:@Model.Address</label><br />
+        <label>Email:@Model.Email</label><br />
+
+        <br /><br />
+
+    </div>
+
+    <div style="width:50%;float:right;margin-top:5%;">
+
+        <a class="fancybox" href="~/Content/Users/@Model.Picture">
+            <img src="~/Content/Users/@Model.Picture" style="max-height:80%;max-width:50%;margin-top:5%" data-toggle="modal">
+        </a>
+
+
+
+
+
+
+        <a href="/User/uploadPicture"><input type="submit" value="Change Picture" /></a>
+    </div>
+
+</body>

@@ -1,0 +1,132 @@
+﻿@using MvcApplication1.Models
+@model User
+
+@{
+
+    ViewBag.Title = "Create Account";
+}
+
+<body>
+
+
+    <div class="text-center">
+
+        <h2 class="text-success"><strong>WelCome to Become a Part Of NBL</strong></h2><br />
+    </div>
+
+
+    <div class="container well well-sm">
+
+        <div class="col-lg-6">
+
+            @using (Html.BeginForm("HomePage", "Login", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+
+                @Html.LabelFor(x => x.Name)<br />
+                @Html.TextBoxFor(x => x.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+                <br /><br />
+
+                @Html.LabelFor(x => x.Username)<br />
+                @Html.TextBoxFor(x => x.Username, new { id = "userName" })
+                @Html.ValidationMessageFor(model => model.Username)
+                <div id="result1" style="color:red;"></div>
+                <br /><br />
+
+                @Html.LabelFor(x => x.Email)<br />
+                @Html.TextBoxFor(x => x.Email, new { id = "email1" })
+                @Html.ValidationMessageFor(model => model.Email)
+                <div id="result" style="color:red;"></div>
+
+                <br /><br />
+
+                @Html.LabelFor(x => x.Password)<br />
+                @Html.PasswordFor(x => x.Password, new { @id = "password" })
+                @Html.ValidationMessageFor(model => model.Password)
+                <br /><br />
+
+
+
+
+                @Html.LabelFor(x => x.confirm)<br />
+                @Html.PasswordFor(x => x.confirm)
+                @Html.ValidationMessageFor(model => model.confirm)
+
+                <br /><br />
+
+                @Html.LabelFor(x => x.Address)<br />
+                @Html.TextBoxFor(x => x.Address)
+                @Html.ValidationMessageFor(model => model.Address)
+
+
+                <br /><br />
+
+
+
+                <!--<div class="col-lg-4">-->
+                <p style="color:black;">@ViewBag.print</p>
+
+                <input type="submit" value="Register" id="but" class="btn btn-lg btn-primary" />
+            }
+
+        </div>
+
+    </div>
+    <br /><br /><br />
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/jquery-1.8.2.js")
+
+
+    <script>
+        $(document).ready(function () {
+            $('#userName').focusout(function () {
+
+                var userName = $('#userName').val();
+
+                $.getJSON("/Login/userName?Name=" + userName, function (data) {
+                    if (data) {
+
+                        $('#result1').text("UserName already in use.");
+                        $('#but').hide();
+
+                    }
+                    else {
+                        $('#result1').text("UserName is available.");
+                        $('#but').show();
+                    }
+                });
+
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#email1').focusout(function () {
+
+                var userName = $('#email1').val();
+
+                $.getJSON("/Login/CheckEmail?email=" + userName, function (data) {
+                    if (data) {
+
+                        $('#result').text("Email already in use.");
+                        $('#but').hide();
+
+                    }
+                    else {
+                        $('#result').text("Email is available.");
+                        $('#but').show();
+                    }
+                });
+
+            });
+
+        });
+    </script>
+
+</body>

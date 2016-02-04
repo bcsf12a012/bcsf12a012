@@ -1,0 +1,32 @@
+﻿@{
+
+    ViewBag.Title = "Ask";    
+    Layout = "~/Views/Shared/AdminNavBar.cshtml";
+
+}
+<body style=" color:black;">
+    <div>
+
+
+        <h1 style="margin-left:30%">Post Question</h1>
+
+        <br /><br />
+
+    
+            <div class="container well well-sm col-lg-4" style="margin-left:20%">
+                <form action="/Admin/saveQuestion" method="post">
+                    <label>Enter Title Of Question</label>
+                    <br />
+                    <br />
+                    <input type="text" name="Title" required="" /><br /><br />
+                    <label>Enter Question</label><br /><br />
+                    <textarea name="Question" rows="10" cols="30" required=""></textarea>
+                    <br /><br />
+
+                    <input type="submit" />
+
+                </form>
+            </div>
+        </div>
+    
+</body>

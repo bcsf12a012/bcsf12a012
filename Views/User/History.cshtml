@@ -1,0 +1,42 @@
+﻿@using MvcApplication1.Models
+@model IEnumerable<Transction>
+
+@{
+    ViewBag.Title = "Add Friend";
+    Layout = "~/Views/Shared/UserNavBar.cshtml";
+}
+
+<body>
+    <div class="container well well-sm col-lg-6" style="margin-left:20%">
+
+        <table class="table" style="border:solid">
+            <thead>
+                <tr class="btn-primary" style="text-align:center">
+                    <th>ID</th>
+                    <th>Sender</th>
+                    <th>Receiver</th>
+                    <th>      Time</th>
+                    <th>Balance</th>
+
+                </tr>
+            </thead>
+
+            @foreach (Transction obj in Model)
+            {
+                <tr>
+                    <td>@obj.Id</td>
+                    <td>@obj.SenderId</td>
+                    <td>@obj.ReceiverId</td>
+                    <td>@obj.Date</td>
+                    <td>Rs:@obj.Money</td>
+
+                    
+
+                </tr>
+            }
+
+        </table>
+
+    </div>
+
+</body>

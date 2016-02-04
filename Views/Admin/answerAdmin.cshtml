@@ -1,0 +1,50 @@
+﻿@using MvcApplication1.Models
+@model IEnumerable<UserQuestion>
+
+@{
+  
+    ViewBag.Title = "View Question";  
+    Layout = "~/Views/Shared/AdminNavBar.cshtml";
+
+}
+<body style=" color: black;">
+
+    
+    <div>
+   
+        <h1 style="margin-left:30%">WelCome Admin To Comment On Questions</h1>
+
+        <br />
+        <div  class="container well well-sm col-lg-6" style="margin-left:20%">
+            <table class="table" style="border:solid">
+                <thead>
+                    <tr class="btn-primary" style="text-align:center">
+                        <th>Question ID</th>
+                        <th>Title</th>
+                        <th>View Full</th>
+                        
+                        <th>Delete</th>
+
+                    </tr>
+                </thead>
+
+                @foreach (UserQuestion obj in Model)
+                {
+                    <tr>
+                        <td>@obj.Id</td>
+                        <td>@obj.Title</td>
+                        <td><a href="/Admin/detailQuestion/@obj.Id"><input type="submit" value="View" class="btn btn-primary hvr-bounce-in" /></a></td>
+                        <td><a href="/Admin/deleteQuestion/@obj.Id"><input type="submit" value="Delete" class="btn btn-primary hvr-bounce-in" /></a></td>
+                        
+
+                    </tr>
+                }
+
+            </table>
+            
+            
+        </div>
+  
+      </div>
+</body>
+

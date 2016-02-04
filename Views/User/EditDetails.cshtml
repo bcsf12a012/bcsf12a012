@@ -1,0 +1,35 @@
+﻿@using MvcApplication1.Models
+@model User
+
+@{
+    ViewBag.Title = "Update Profile";
+    Layout = "~/Views/Shared/UserNavBar.cshtml";
+}
+
+<body style=" color:black;">
+    <div>
+
+        <div class="container well well-sm col-lg-4" style="margin-left:30%;margin-top:5%; border: solid">
+            <form method="post" action="/User/updateForm1">
+                <label style="margin-left:5%">UserName:</label>@Model.Username<br /><br />
+                <label style="margin-left:5%">Email:</label>@Model.Email<br /><br />
+                <label style="margin-left:5%">  Name:</label>@Model.Name<br /><br />
+
+                <label style="margin-left:5%">Password:</label>@Model.Password<br /><br />
+                
+                <label style="margin-left:5%">Address:</label>@Model.Address<br /><br />
+                <br /><br />
+                <div class="form-group" style="margin-left: 25%">
+
+                    <input type="submit" value="Update" class="btn btn-success" />
+
+                    
+                </div>
+            </form>
+
+
+            <br /><br />
+        </div>
+  
+      </div>
+</body>

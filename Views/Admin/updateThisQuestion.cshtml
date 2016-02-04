@@ -1,0 +1,25 @@
+﻿@using MvcApplication1.Models
+@model UserQuestion
+
+@{
+    ViewBag.Title = "Update Form";
+    Layout = "~/Views/Shared/AdminNavBar.cshtml";
+}
+
+<body style=" color:black;">
+
+    <div style="margin-left:30%" class="container well well-sm col-lg-4">
+        <form method="post" action="/Admin/updateQ/@Model.Id">
+            <label>Title:</label><input type="text" name="Title" value="@Model.Title" /><br /><br />
+
+            <label>Body:</label><br />
+            <textarea rows="15" cols="50" name="Question"> @Model.Question</textarea>
+
+            <div class="form-group" style="margin-left: 25%">
+                <input type="submit" value="Update" class="btn btn-success" />
+
+            </div>
+        </form>
+    </div>
+
+</body>

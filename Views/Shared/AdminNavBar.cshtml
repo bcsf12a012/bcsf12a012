@@ -1,0 +1,307 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script src="~/Scripts/jquery.min.js"></script>
+
+
+    <link href="~/Content/jquery.fancybox.css" rel="stylesheet" />
+    <link href="~/Content/jquery.fancybox-buttons.css" rel="stylesheet" />
+
+    <link href="~/Content/jquery.fancybox-thumbs.css" rel="stylesheet" />
+
+
+    <script src="~/Content/bootstrap.min.js"></script>
+
+
+    <link href="~/Content/hover.css" rel="stylesheet" />
+    <link href="~/Content/hover-min.css" rel="stylesheet" />
+
+
+    <script src="~/Scripts/jquery-2.1.4.js"></script>
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap%20(7).css" rel="stylesheet" />
+
+
+    <link href="~/Content/js-image-slider.css" rel="stylesheet" type="text/css" />
+    <script src="~/Content/js-image-slider.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+ 
+       <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="nav navbar-header">
+
+                <a href="#" style="font-family: fantasy" class="navbar-brand">Nouman Bank Limited</a>
+            </div>
+
+            <div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Main", "Admin", "Admin")</li>
+                    
+                    <li>@Html.ActionLink("Deposite", "Deposite", "Admin")</li>
+                    <li>@Html.ActionLink("View Transction", "Transction", "Admin")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Customer <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("View Customers", "ViewAdmin", "Admin")</li>
+                            
+                            <li>@Html.ActionLink("Update Customers", "EditAdmin", "Admin")</li>
+                            <li>@Html.ActionLink("Delete Customer", "deleteCustomer", "Admin")</li>
+
+
+
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Question <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Ask Question", "SeeQuestionAdmin", "Admin")</li>
+                            <li>@Html.ActionLink("My Questions", "MyAllQuestions", "Admin")</li>
+                            <li>@Html.ActionLink("Comment On Question", "answerAdmin", "Admin")</li>
+
+                            <li>@Html.ActionLink("Update My Questions", "UpdateQuestion", "Admin")</li>
+                            <li>@Html.ActionLink("Delete My Questions", "DeleteMyQuestion", "Admin")</li>
+
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Search", "Search", "Admin")</li>
+                    <li>@Html.ActionLink("Sign out", "SignOut", "Admin")</li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @RenderBody()
+    <script src="~/Scripts/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script src="~/Scripts/jquery-1.9.0.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.1.min.js"></script>
+
+    <script src="~/Scripts/jquery.fancybox-buttons.js"></script>
+    <script src="~/Scripts/jquery.fancybox-media.js"></script>
+
+    <script src="~/Scripts/jquery.fancybox-thumbs.js"></script>
+    <script src="~/Scripts/jquery.fancybox.js"></script>
+    <script src="~/Scripts/jquery.fancybox.pack.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+             *  Simple image gallery. Uses default settings
+             */
+
+            $('.fancybox').fancybox();
+
+            /*
+             *  Different effects
+             */
+
+            // Change title type, overlay closing speed
+            $(".fancybox-effects-a").fancybox({
+                helpers: {
+                    title: {
+                        type: 'outside'
+                    },
+                    overlay: {
+                        speedOut: 0
+                    }
+                }
+            });
+
+            // Disable opening and closing animations, change title type
+            $(".fancybox-effects-b").fancybox({
+                openEffect: 'none',
+                closeEffect: 'none',
+
+                helpers: {
+                    title: {
+                        type: 'over'
+                    }
+                }
+            });
+
+            // Set custom style, close if clicked, change title type and overlay color
+            $(".fancybox-effects-c").fancybox({
+                wrapCSS: 'fancybox-custom',
+                closeClick: true,
+
+                openEffect: 'none',
+
+                helpers: {
+                    title: {
+                        type: 'inside'
+                    },
+                    overlay: {
+                        css: {
+                            'background': 'rgba(238,238,238,0.85)'
+                        }
+                    }
+                }
+            });
+
+            // Remove padding, set opening and closing animations, close if clicked and disable overlay
+            $(".fancybox-effects-d").fancybox({
+                padding: 0,
+
+                openEffect: 'elastic',
+                openSpeed: 150,
+
+                closeEffect: 'elastic',
+                closeSpeed: 150,
+
+                closeClick: true,
+
+                helpers: {
+                    overlay: null
+                }
+            });
+
+            /*
+             *  Button helper. Disable animations, hide close button, change title type and content
+             */
+
+            $('.fancybox-buttons').fancybox({
+                openEffect: 'none',
+                closeEffect: 'none',
+
+                prevEffect: 'none',
+                nextEffect: 'none',
+
+                closeBtn: false,
+
+                helpers: {
+                    title: {
+                        type: 'inside'
+                    },
+                    buttons: {}
+                },
+
+                afterLoad: function () {
+                    this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+                }
+            });
+
+
+            /*
+             *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+             */
+
+            $('.fancybox-thumbs').fancybox({
+                prevEffect: 'none',
+                nextEffect: 'none',
+
+                closeBtn: false,
+                arrows: false,
+                nextClick: true,
+
+                helpers: {
+                    thumbs: {
+                        width: 50,
+                        height: 50
+                    }
+                }
+            });
+
+            /*
+             *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+            */
+            $('.fancybox-media')
+                .attr('rel', 'media-gallery')
+                .fancybox({
+                    openEffect: 'none',
+                    closeEffect: 'none',
+                    prevEffect: 'none',
+                    nextEffect: 'none',
+
+                    arrows: false,
+                    helpers: {
+                        media: {},
+                        buttons: {}
+                    }
+                });
+
+            /*
+             *  Open manually
+             */
+
+            $("#fancybox-manual-a").click(function () {
+                $.fancybox.open('1_b.jpg');
+            });
+
+            $("#fancybox-manual-b").click(function () {
+                $.fancybox.open({
+                    href: 'iframe.html',
+                    type: 'iframe',
+                    padding: 5
+                });
+            });
+
+            $("#fancybox-manual-c").click(function () {
+                $.fancybox.open([
+                    {
+                        href: '1_b.jpg',
+                        title: 'My title'
+                    }, {
+                        href: '2_b.jpg',
+                        title: '2nd title'
+                    }, {
+                        href: '3_b.jpg'
+                    }
+                ], {
+                    helpers: {
+                        thumbs: {
+                            width: 75,
+                            height: 50
+                        }
+                    }
+                });
+            });
+
+
+        });
+    </script>
+    <script>
+    function comment1(id) {
+        var elem = "#cmnt";
+        alert(id);
+    var com = "#txt";
+    var description = $(com).val();
+    $(com).val("")
+    alert("comment1" + description);
+        $.post("/Admin/comment", { Id: id, Description: description })
+    .done(function (data) {
+
+        $('#cmnt').html(data);
+    });
+    }
+    </script>
+
+    <div>
+        <footer class="navbar-fixed-bottom navbar-inverse">
+            <!-- style="font-family: 'Blackadder ITC'; color: darkkhaki; margin-left: 55%;padding:60px; font-size:54px"-->
+            <div style="text-align:center;">
+                <h6 style="color:white">All rights are reserved by N.S.</h6>
+                <h6 style="color:white">bcsf12a012@pucit.edu.pk</h6>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

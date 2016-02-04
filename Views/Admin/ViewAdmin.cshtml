@@ -1,0 +1,58 @@
+﻿@using MvcApplication1.Models
+@model IEnumerable<User>
+
+
+@{
+    ViewBag.Title = "All Users";    
+    Layout = "~/Views/Shared/AdminNavBar.cshtml";
+    
+}
+
+<body style=" color: black;">
+    
+ 
+
+    <h1 style="margin-left:30%">WelCome Admin To View Customers</h1>
+  
+
+    <br />
+    <div class="thumbnail" style="margin-left:10%">
+
+        <div class="thumbnail">
+            @foreach (User s in Model)
+            {
+                
+                    
+                       @* <img style="max-height:300px;max-width:300px" src="~/Content/Users/@s.Picture" />*@
+                       if(s.Picture == null)
+                        {
+                         <h4 style="margin-left:30%">No Profile Picture</h4>
+
+                        }
+                        else
+                        {
+                        <a class="fancybox" href="~/Content/Users/@s.Picture">
+                            <img src="~/Content/Users/@s.Picture" style="max-height:400px;max-width:400px" data-toggle="modal">
+                        </a>
+                        }
+                        
+                        <div class="caption">
+
+                            <div class="row">
+
+                                <h4 class="">Name: @s.Name</h4><h4 class="">UserName: @s.Username</h4>
+                            </div>
+
+                        
+                    </div>
+                
+                <hr style="color:black"/>
+                
+            }
+        </div>
+  
+        <br /><br /><br /><br />  
+    </div>
+
+
+</body>

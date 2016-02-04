@@ -1,0 +1,36 @@
+﻿@using MvcApplication1.Models
+@model SaveMoney
+
+@{
+    ViewBag.Title = "Add Money";
+
+    Layout = "~/Views/Shared/AdminNavBar.cshtml";
+
+}
+
+<body style=" color: black;">
+    <div class="container well well-sm col-lg-4" style="margin-left: 20%">
+
+        <form action="/Admin/submitMoney" method="post">
+            <div class="form-group">
+                <h4>Balance of this Custoemr is @ViewBag.money .</h4><br /><br />
+                <div class="col-md-4">
+
+
+
+                    @Html.LabelFor(x => x.Money)
+                </div>
+
+                <div class="col-md-4">
+                    <input type="number" name="Money" placeholder="Money must be +ve" min="0" required="" />
+                </div>
+            </div>
+
+            <br /><br />
+            <div class="form-group" style="margin-left: 25%">
+                <input type="submit" value="Submit" class="btn btn-success" />
+
+            </div>
+        </form>
+    </div>
+</body>

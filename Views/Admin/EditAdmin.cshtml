@@ -1,0 +1,81 @@
+﻿@using MvcApplication1.Models
+@model IEnumerable<User>
+
+@{
+    ViewBag.Title = "Update Users";
+    Layout = "~/Views/Shared/AdminNavBar.cshtml";
+
+}
+<body style=" color: black;">
+
+    
+    <h1 style="margin-left:30%">WelCome Admin to Update Customers</h1>
+    <br /><br />
+
+    <div class="row container well well-sm col-lg-5" style="margin-left:30%">
+        @foreach (User s in Model)
+        {
+
+            <div style="margin-left:10%">
+                @* <img style="max-height:300px;max-width:300px" src="~/Content/Users/@s.Picture" />*@
+                @if (s.Picture == null)
+                {
+                    <img style="max-height:300px;max-width:300px" src="~/Content/Users/@s.Picture" />
+
+                }
+                else
+                {
+                    <a class="fancybox" href="~/Content/Users/@s.Picture">
+                        <img src="~/Content/Users/@s.Picture" style="max-height:400px;max-width:400px" data-toggle="modal">
+                    </a>
+                }
+
+                <div class="caption">
+
+                    <div class="row">
+
+                        <h4 class="">Name: @s.Name</h4><h4 class="">UserName: @s.Username</h4>
+                        <a href="/Admin/updateForm/@s.Id"><input type="submit" value="Update" class="btn btn-primary hvr-bounce-in" /></a>
+                    </div>
+
+                </div>
+            </div>
+            <br /><br />
+            
+            
+            <hr style="color:black" />
+            
+            
+                
+        }
+    </div>
+
+    @*<div class="container well well-sm col-lg-8" style="margin-left:15%">
+
+        <table class="table" style="border:solid">
+            <thead>
+                <tr class="btn-primary" style="text-align:center">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Username</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+
+            @foreach (User obj in Model)
+            {
+                <tr>
+                    <td>@obj.Id</td>
+                    <td>@obj.Name</td>
+                    <td>@obj.Address</td>
+                    <td>@obj.Username</td>
+                    <td><a href="/Admin/updateForm/@obj.Id">Update</a></td>
+                </tr>
+            }
+
+
+        </table>
+    </div>*@
+</body>
+

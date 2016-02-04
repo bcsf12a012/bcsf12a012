@@ -1,0 +1,31 @@
+﻿@using MvcApplication1.Models
+@model IEnumerable<Firend>
+
+@{
+    ViewBag.Title = "Select Friend";
+    Layout = "~/Views/Shared/UserNavBar.cshtml";
+}
+
+<body style=" color: black;">
+    <div class="container well well-sm col-lg-4" style="margin-left:30%;margin-top:5%; border: solid">
+        <h3 style="align-content:center;">You can send Money Only added Friend as you must need to remember account of your friend. To avoid this we give this facility. So please select one friend to send money.</h3><br />
+        <form action="/User/Transction" method="post">
+            <select name="Friend" style="margin-left:20%">
+                <option value="-1">Select  Friend</option>
+                @foreach (Firend c in Model)
+                {
+                    <option value=@c.FriendId>@c.Name</option>
+
+                }
+
+            </select>
+            <br />
+            <h4 style="color:red">@ViewBag.print</h4>
+            <br /><br />
+            <input type="submit" value="Done"  class="btn btn-success" style="margin-left:30%" />
+        </form>
+    
+    </div>
+
+
+</body>

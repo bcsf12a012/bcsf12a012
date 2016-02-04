@@ -1,0 +1,28 @@
+﻿@using MvcApplication1.Models
+@model User
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/UserNavBar.cshtml";
+}
+
+
+<body style=" color: black;">
+    
+
+    <div class="container well well-sm col-lg-3" style="width:30%;float:right;margin-right:20%;color:darkblue;border:solid">
+        <label style="margin-left:30%">Personal Information</label><br /><br /><br />
+
+        <label>Account Number:</label>@Model.Id<br /><br />
+        <label>Name:</label>@Model.Name<br /><br />
+        <label>Email:</label>@Model.Email<br /><br />
+        <label>Password:</label>@Model.Password<br /><br />
+        <label>Address:</label>@Model.Address<br /><br />
+        <label>UserName:</label>@Model.Username<br /><br /><br />
+    </div>
+
+    <div class="container well well-sm col-lg-2" style="width:35%;float:left;margin-left:10%;color:darkblue;border:solid">
+        <img src="~/Content/Users/@Model.Picture" style="max-height:300px;max-width:400px" />
+    </div>
+
+</body>

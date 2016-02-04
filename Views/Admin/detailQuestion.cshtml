@@ -1,0 +1,70 @@
+﻿@using MvcApplication1.Models
+@model IEnumerable<Comment>
+
+@{
+    ViewBag.Title = "Comment";
+    
+    Layout = "~/Views/Shared/AdminNavBar.cshtml";
+
+}
+
+
+<body style=" color: black;">
+    <div>
+
+    
+        <br /><br />
+        <div class="container well well-sm col-lg-4" style="margin-left:20%">
+            <label>Id:@ViewBag.obj.Id</label><br />
+            <label>Title:@ViewBag.obj.Title</label><br />
+            <label>UserId:@ViewBag.obj.UserName</label><br />
+            <label>Question:@ViewBag.obj.Question</label><br />
+            <label style="text-align:center">Comments</label>
+            <hr />
+           
+            
+            @foreach (Comment obj in Model)
+            {
+
+                foreach (User o in @ViewBag.p)
+                {
+                    if (o.Id == obj.UserId)
+                    {
+                        
+                        if (@obj.UserId == 1)
+                        {
+                            <p>
+                                <a href="/Admin/deleteCom/@obj.Id" class="pull-right"><input type="submit" value="Delete" class="btn btn-primary hvr-bounce-in" /></a>
+            <strong><a href="/Admin/ViewProfile/@o.Id">Admin</a></strong>:@obj.Comment1</p>
+
+                        }
+                        else
+                        {
+                            <p>
+                           
+                            <strong><a href="/Admin/ViewProfile/@obj.Id">@obj.Name</a></strong>:@obj.Comment1
+
+                                
+                            <a href="/Admin/deleteCom/@obj.Id" class="pull-right"><input type="submit" value="Delete" class="btn btn-primary hvr-bounce-in" /></a></p>
+                        }
+                        break;
+                    }
+                }
+
+                <br /><br />
+                <hr />
+
+            }
+
+            <form action="/Admin/comment" method="post">
+                <textarea cols="50" rows="5" required name="comment"></textarea>
+                
+                <div class="form-group" style="margin-left: 25%">
+                    <input type="submit" value="Comment" class="btn btn-success" />
+
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+

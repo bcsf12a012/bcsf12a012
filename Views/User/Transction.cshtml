@@ -1,0 +1,41 @@
+﻿@using MvcApplication1.Models
+@model Transction
+
+@{
+    ViewBag.Title = "Transction";
+    Layout = "~/Views/Shared/UserNavBar.cshtml";
+}
+
+<body style=" color: black;">
+    <div>
+        <div class="container well well-sm col-lg-4" style="margin-left: 30%;margin-top:5%; border: solid">
+
+            <h4>Your current balance is @ViewBag.message .</h4><br /><br />
+
+            @if (@ViewBag.message != 0)
+            {
+                <form action="/User/SaveTransction" method="post">
+                    <div class="form-group">
+
+
+
+
+                        <div class="col-md-4">
+
+                            @Html.LabelFor(x => x.Money)
+                            <input type="number" name="Money" placeholder="Money must be +ve" min="0" max="" required="" /><br /><br />
+                        </div>
+                    </div>
+
+                    <br /><br />
+                    <div class="form-group" style="margin-left: 25%">
+                        <br /><br /><br /><br /><br />
+                        <input type="submit" value="Submit" class="btn btn-success" />
+
+                    </div>
+                </form>
+            }
+        </div>
+    </div>
+</body>
+

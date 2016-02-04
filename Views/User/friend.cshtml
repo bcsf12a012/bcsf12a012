@@ -1,0 +1,25 @@
+﻿@using MvcApplication1.Models
+@model Firend
+
+@{
+    ViewBag.Title = "Your Friends";
+    Layout = "~/Views/Shared/UserNavBar.cshtml";
+}
+<body style=" color: black;">
+    <div class="container well well-sm col-lg-4" style="margin-left:30% ; margin-top:8%; border: solid">
+
+        <form action="/User/AddFriend" method="post" class="form-horizontal" >
+            @Html.LabelFor(x => x.Name)
+            @Html.TextBoxFor(x => x.Name, new { @required = "" })
+            <br /><br />
+
+            @Html.LabelFor(x => x.FriendId)
+            @Html.TextBoxFor(x => x.FriendId, new { @required = "" ,type="number" , min="0"})
+            <br /><br /><br />
+            <input type="submit" value="Add Friend" name="Add My friend" class="btn btn-success" style="margin-left:40%" />
+        </form>
+    </div>
+
+
+</body>
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1f10c5e8bef34844892559317513bc18" Name="Diagram1">
+        <EntityTypeShape EntityType="BankWithEFModel.Comment" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankWithEFModel.EmailAee" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankWithEFModel.Firend" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankWithEFModel.Notify" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankWithEFModel.SaveMoney" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankWithEFModel.Transction" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankWithEFModel.User" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BankWithEFModel.UserQuestion" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="BankWithEFModel.FK_Firend_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="BankWithEFModel.FK_Firend_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="BankWithEFModel.FK_SaveMoney_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="BankWithEFModel.FK_Transction_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="BankWithEFModel.FK_Transction_ToTable_1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

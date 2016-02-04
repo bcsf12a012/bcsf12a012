@@ -1,0 +1,49 @@
+﻿@using MvcApplication1.Models
+@model IEnumerable<UserQuestion>
+
+@{
+    ViewBag.Title = "My Question";
+    Layout = "~/Views/Shared/UserNavBar.cshtml";
+}
+
+<body style=" color: black;">
+    <div class="container well well-sm col-lg-3 " style="width:30%;margin-left:5%; float:left">
+       <h4>
+
+       </h4>
+        
+        <select name="Friend" style="margin-left:20%" id="Question">
+
+            <option value="0">Select Question</option>
+            @foreach (UserQuestion c in Model)
+            {
+                <option value="@c.Id">@c.Title</option>
+
+            }
+
+        </select>
+
+            <br /><br /><br />
+            
+        
+    </div>
+
+    <br />
+    <div id="d1" class="container  col-lg-4" style=" width:50%;float:left">
+
+
+
+    </div>
+
+    <script>
+
+        $('#Question').change(function ()
+    {
+            var value = $('#Question').val();
+
+        $('#d1').load('/User/UserQuestion?Id=' + value);
+    });
+
+    </script>
+
+</body>

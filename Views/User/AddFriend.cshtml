@@ -1,0 +1,25 @@
+﻿@using MvcApplication1.Models
+@model IEnumerable<Firend>
+
+@{
+    ViewBag.Title = "Add Friend";
+    Layout = "~/Views/Shared/UserNavBar.cshtml";
+}
+
+<body style=" color: black;">
+    <div class="container well well-sm col-lg-3" style="margin-left:25%">
+        You can send Money Only added Friend So please select one friend to send money.<br />
+        <form action="/User/Transection">
+            <select name="Friend">
+
+                @foreach (Firend c in Model)
+                {
+                    <option value=@c.FriendId>@c.Name</option>
+
+                }
+            </select>
+        </form>
+    </div>
+
+
+</body>

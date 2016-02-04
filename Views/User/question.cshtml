@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Ask Question";
+    Layout = "~/Views/Shared/UserNavBar.cshtml";
+}
+
+
+
+<body style=" color:black;">
+   
+     <div>
+        <div class="container well well-sm col-lg-4" style="margin-left:20%">
+            <form method="post" action="/User/getQuestion">
+                <label>Enter Title Of Question:   </label><br />
+                
+                <input type="text" name="Title" required="required" /><br /><br />
+                <label>Enter Question:</label><br />
+                <textarea name="Question" rows="10" cols="30" required="required" style="margin-left:2%"></textarea>
+                <br /><br />
+                
+                <div class="form-group" style="margin-left: 25%">
+                    <input type="submit" value="Submit" class="btn btn-success" />
+
+                </div>
+            
+            </form>
+        </div>
+    </div>
+</body>
+

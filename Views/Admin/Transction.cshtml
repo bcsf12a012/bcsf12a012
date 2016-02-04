@@ -1,0 +1,49 @@
+﻿@using MvcApplication1.Models
+@model IEnumerable<Transction>
+
+
+@{
+    ViewBag.Title = "All Transction";
+    Layout = "~/Views/Shared/AdminNavBar.cshtml";
+
+}
+
+<body style=" color: black;">
+
+
+
+    <h1 style="margin-left:30%">WelCome Admin To View Transction</h1>
+
+
+    <br />
+    <div class=" container well well-sm col-lg-8" style="margin-left:15%">
+
+        <table class="table" style="border:solid">
+            <thead>
+                <tr class="btn-primary" style="text-align:center">
+                    <th>Id</th>
+                    <th>Sender Id</th>
+                    <th>Receiver Id</th>
+                    <th>Money</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+
+            @foreach (Transction abc in Model)
+            {
+                <tr>
+                    <td>@abc.Id</td>
+                    <td>@abc.SenderId</td>
+                    <td>@abc.ReceiverId</td>
+                    <td>@abc.Money</td>
+                    <td>@abc.Date</td>
+
+                </tr>
+            }
+
+
+        </table>
+    </div>
+
+
+</body>

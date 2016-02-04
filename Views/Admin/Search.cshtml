@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+<div class="container">
+    <input type="text" name="search" id="s1"><input type="button" name="searchButton" id="sbutton" value="Search">
+</div>
+<div class="container" id="tb">
+    @*<table class="table" style="border:solid" id="t1">
+            <thead>
+                <tr class="btn-primary" style="text-align:center">
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                </tr>
+            </thead>
+        <tbody id="tb1">
+
+            </tbody>*@
+    <p id="p1"></p>
+</div>
+
+ @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/jquery-1.8.2.js")
+
+<script>
+    $(document).ready(function () {
+        $('#sbutton').on('click',function () {
+                
+            var Name = $('#s1').val();
+            var s;
+           
+            if (Name == "ahmed" || Name == "shahzad") {
+                $('#p1').text(Name);
+
+            }
+            else {
+                $('#p1').text("");
+            }
+                $.getJSON("/Admin/Searchuser?Name=" + Name, function (data) {
+                    
+                    if (data!=null) {
+                        alert(data);
+                        s = data + 'user exist';
+
+                        $('#p1').text(s);
+                        
+
+                    }
+                    else {
+                       
+                    }
+                    
+                });
+
+            });
+
+        });
+    </script>
